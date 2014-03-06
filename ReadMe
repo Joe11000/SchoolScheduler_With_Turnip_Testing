@@ -1,0 +1,34 @@
+Help to set up turnip in rails 
+
+TURNIP CONFIG
+https://github.com/jnicklas/turnip
+
+FACTORYGIRL CONFIG
+http://blog.smartlogicsolutions.com/2012/03/28/adding-factory-girl-steps-to-turnip/
+
+  spec/support/factory_girl_step_helpers.rb
+        INSERT FROM GIST ->  https://gist.github.com/danivovich/2155058#file_factory_girl_step_helpers.rb
+
+  spec/spec_helper.rb
+
+         config.include FactoryGirlStepHelpers
+
+
+
+Turnip w/
+  * Rails
+     spec/turnip_helper.rb 
+        INSERT  Dir.glob("specs/steps/**/*steps.rb"){|f|  load f, true}
+                require 'turnip/capybara'
+
+     Gemfile
+        INSERT  group :test do
+                  gem 'turnip'
+                end
+
+     .rspec
+        INSERT   -r turnip/rspec
+
+
+  
+
